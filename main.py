@@ -1,9 +1,12 @@
-import sys
 
-mode = input("enter mode, 10 or 2").strip()
+mode = input("enter mode, 10 or 2: ").strip()
 if mode == "10":
     print("Decimal to Binary mode set")
-    num = int(input("enter decimal number: "))
+    try:
+        num = int(input("enter decimal number: "))
+    except ValueError:
+        print('wrong decimal input')
+        exit()
     binary = ""
 
     while num > 0:
@@ -26,7 +29,7 @@ elif mode == "2":
             decimal += int(num[index]) * 2 ** (len(num)-(index + 1))
         else:
             print('wrong binary input')
-            sys.exit()
+            exit()
     print(decimal)
 else:
     print('wrong mode')
